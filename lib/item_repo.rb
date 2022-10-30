@@ -24,11 +24,14 @@ class ItemRepository
     return items
   end
 
-  # def create(item)
-  #   # Executes the SQL query:
-  #   sql = INSERT INTO items (name, price, quantity) VALUES ($1, $2, $3);
+  def create(item)
+    # Executes the SQL query:
+    sql = 'INSERT INTO items (name, price, quantity) VALUES ($1, $2, $3);'
+    sql_params = [item.name, item.price, item.quantity]
 
-  #   # Returns nothing
-  # end
+    DatabaseConnection.exec_params(sql, sql_params)
+
+    # Returns nothing
+  end
 
 end

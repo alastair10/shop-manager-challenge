@@ -24,7 +24,7 @@ describe ItemRepository do
   end
 
   context "Create Method" do
-    xit "creates a new item in the shop" do
+    it "creates a new item in the shop" do
       # 1. Set up what the new item will be...
       repo = ItemRepository.new
       item = Item.new

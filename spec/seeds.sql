@@ -6,11 +6,11 @@ INSERT INTO items (name, price, quantity) VALUES ('broccoli', 1, 2);
 INSERT INTO items (name, price, quantity) VALUES ('chicken', 5, 5);
 INSERT INTO items (name, price, quantity) VALUES ('coffee', 7, 4);
 
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('alastair', '05/01/2022', '08:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('gunel', '08/03/2022', '09:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('thanos', '10/24/2022', '10:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('mum', '04/28/2022', '11:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('dad', '08/01/2022', '12:15:00');
+INSERT INTO orders (order_name, order_date, order_time) VALUES ('alastair', '1985-05-01', '08:15:00');
+INSERT INTO orders (order_name, order_date, order_time) VALUES ('gunel', '1985-08-03', '09:15:00');
+INSERT INTO orders (order_name, order_date, order_time) VALUES ('thanos', '2022-10-24', '10:15:00');
+INSERT INTO orders (order_name, order_date, order_time) VALUES ('mum', '1954-04-30', '11:15:00');
+INSERT INTO orders (order_name, order_date, order_time) VALUES ('dad', '1948-08-01', '12:15:00');
 
 INSERT INTO items_orders (item_id, order_id) VALUES (5,1);
 INSERT INTO items_orders (item_id, order_id) VALUES (2,2);
