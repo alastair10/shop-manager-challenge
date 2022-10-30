@@ -1,4 +1,4 @@
-require 'order_repo.rb'
+require 'order_repo'
 
 def reset_orders_table
   seed_sql = File.read('spec/seeds.sql')

@@ -1,4 +1,4 @@
-require 'item'
+require_relative './item'
 
 class ItemRepository
 
@@ -13,6 +13,7 @@ class ItemRepository
 
     result_set.each do |record|
       item = Item.new
+      item.id = record['id'].to_i
       item.name = record['name']
       item.price = record['price'].to_i
       item.quantity = record['quantity'].to_i
