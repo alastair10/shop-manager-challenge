@@ -17,4 +17,4 @@ RSpec.configure do |config|
   end
 end
 
-DatabaseConnection.connect('shop_manage_test')
+DatabaseConnection.connect('shop_manager_test')
