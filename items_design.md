@@ -26,7 +26,7 @@ end
 ## 4. Implement the Model class
 
 class Item
-  attr_accessor :id, :name, :price, :quantity
+  attr_accessor :id, :item_name, :item_price, :item_quantity
 end
 
 ```
@@ -41,14 +41,14 @@ class ItemRepository
   # No arguments
   def all
     # Executes the SQL query:
-    sql = SELECT id, name, price, quantity FROM items;
+    sql = 'SELECT id, item_name, item_price, item_quantity FROM items;'
 
     # Returns an array of Item objects.
   end
 
   def create(item)
     # Executes the SQL query:
-    sql = INSERT INTO items (name, price, quantity) VALUES ($1, $2, $3);
+    sql = 'INSERT INTO items (item_name, item_price, item_quantity) VALUES ($1, $2, $3);'
 
     # Returns nothing
   end
@@ -58,23 +58,14 @@ end
 
 ## 6. Write Test Examples
 
-Write Ruby code that defines the expected behaviour of the Repository class, following your design from the table written in step 5.
-
-These examples will later be encoded as RSpec tests.
-
-```ruby
-# EXAMPLES
-
-# 1 All Method
-# Get all items
 
 repo = ItemRepository.new
 
 items = repo.all
 expect(items.length).to eq 5
-expect(items.first.name).to eq 'milk'
-expect(items.first.quantity).to eq 6
-expect(items.last.price).to eq 7
+expect(items.first.item_name).to eq 'milk'
+expect(items.first.item_quantity).to eq 6
+expect(items.last.item_price).to eq 7
 
 # 2 Create Method
 # Add an entry to the items table
@@ -82,9 +73,9 @@ expect(items.last.price).to eq 7
 # 1. Set up what the new item will be...
 repo = ItemRepository.new
 item = Item.new
-item.name = 'tea'
-item.price = 3
-item.quantity = 10
+item.item_name = 'tea'
+item.item_price = 3
+item.item_quantity = 10
 
 # 2. Create the new item...
 repo.create(item)
@@ -92,9 +83,9 @@ repo.create(item)
 # 3. Verify that the new item appears
 items = repo.all
 last_item = items.last
-expect(last_item.name).to eq('tea')
-expect(last_item.price).to eq(3)
-expect(last_item.quantity).to eq(10)
+expect(last_item.item_name).to eq('tea')
+expect(last_item.item_price).to eq(3)
+expect(last_item.item_quantity).to eq(10)
 
 
 ```

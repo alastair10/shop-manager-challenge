@@ -1,16 +1,16 @@
-TRUNCATE TABLE items, orders RESTART IDENTITY CASCADE;
+TRUNCATE TABLE items, orders, items_orders RESTART IDENTITY CASCADE;
 
-INSERT INTO items (name, price, quantity) VALUES ('milk', 1, 6);
-INSERT INTO items (name, price, quantity) VALUES ('feta', 2, 3);
-INSERT INTO items (name, price, quantity) VALUES ('broccoli', 1, 2);
-INSERT INTO items (name, price, quantity) VALUES ('chicken', 5, 5);
-INSERT INTO items (name, price, quantity) VALUES ('coffee', 7, 4);
+INSERT INTO items (item_name, item_price, item_quantity) VALUES ('milk', 1, 6);
+INSERT INTO items (item_name, item_price, item_quantity) VALUES ('feta', 2, 3);
+INSERT INTO items (item_name, item_price, item_quantity) VALUES ('broccoli', 1, 2);
+INSERT INTO items (item_name, item_price, item_quantity) VALUES ('chicken', 5, 5);
+INSERT INTO items (item_name, item_price, item_quantity) VALUES ('coffee', 7, 4);
 
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('alastair', '1985-05-01', '08:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('gunel', '1985-08-03', '09:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('thanos', '2022-10-24', '10:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('mum', '1954-04-30', '11:15:00');
-INSERT INTO orders (order_name, order_date, order_time) VALUES ('dad', '1948-08-01', '12:15:00');
+INSERT INTO orders (order_name, order_date) VALUES ('alastair', '2022-05-01');
+INSERT INTO orders (order_name, order_date) VALUES ('gunel', '2022-08-03');
+INSERT INTO orders (order_name, order_date) VALUES ('thanos', '2022-10-24');
+INSERT INTO orders (order_name, order_date) VALUES ('mum', '2022-04-30');
+INSERT INTO orders (order_name, order_date) VALUES ('dad', '2022-08-01');
 
 INSERT INTO items_orders (item_id, order_id) VALUES (5,1);
 INSERT INTO items_orders (item_id, order_id) VALUES (2,2);

@@ -27,26 +27,36 @@ class Application
     # runs the terminal application
     @io.puts 'Welcome to the shop management program!'
     @io.puts 'What do you want to do?'
-    @io.puts '1 = list all shop items'
-    @io.puts '2 = create a new item'
-    @io.puts '3 = list all orders'
-    @io.puts '4 = create a new order'
+    @io.puts '1) list all shop items'
+    @io.puts '2) create a new item'
+    @io.puts '3) list all orders'
+    @io.puts '4) create a new order'
     input = @io.gets.chomp
 
     if input == '1'
-      @io.puts ""
       @io.puts "Here's a list of all shop items:"
-      @io.puts ""
 
       result_set = @item_repo.all
 
       result_set.each do |item|
-        @io.puts "##{item.id} #{item.name} - Unit price: #{item.price} - Quantity: #{item.quantity}"
+        @io.puts "#{item.id}) #{item.item_name} - Unit price: #{item.item_price} - Quantity: #{item.item_quantity}"
       end
+
     elsif input =='2'
       @io.puts "Do this next!"
+
     elsif input == '3'
-      @io.puts "Do this next!"
+      @io.puts "Here's a list of all shop orders:"
+
+      # orders = @order_repo.all
+      # items = @items_repo.all
+      # item_order
+
+      result_set =  @order_repo.all
+
+      result_set.each do |order|
+        @io.puts "#{order.id}) Date: #{order.order_date} - Name: #{order.order_name}"
+      end
     else
       @io.puts "Do this next!"
     end
@@ -58,7 +68,7 @@ if __FILE__ == $0
     'shop_manager',
     Kernel,
     ItemRepository.new,
-    OrderRepository.new
+    OrderRepository.new,
   )
   app.run
 end

@@ -18,9 +18,8 @@ describe OrderRepository do
       items = repo.all
       expect(items.length).to eq 5
       expect(items.first.order_name).to eq 'alastair'
-      expect(items.first.order_date).to eq '1985-05-01'
-      expect(items.last.order_time).to eq '12:15:00'
-      expect(items.last.order_date).to eq '1948-08-01'
+      expect(items.first.order_date).to eq '2022-05-01'
+      expect(items.last.order_date).to eq '2022-08-01'
       expect(items.last.order_name).to eq 'dad'
     end
   end
@@ -33,7 +32,6 @@ describe OrderRepository do
       order = Order.new
       order.order_name = 'Mickey Mouse'
       order.order_date = '2023-01-01'
-      order.order_time = '13:15:00'
 
       # 2. Create the new item...
       repo.create(order)
@@ -43,7 +41,6 @@ describe OrderRepository do
       last_order = orders.last
       expect(last_order.order_name).to eq('Mickey Mouse')
       expect(last_order.order_date).to eq('2023-01-01')
-      expect(last_order.order_time).to eq('13:15:00')
     end
   end
 end

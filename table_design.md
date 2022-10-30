@@ -108,9 +108,9 @@ sql
 -- Create the first table.
 CREATE TABLE items (
   id SERIAL PRIMARY KEY,
-  name text,
-  price int,
-  quantity int
+  item_name text,
+  item_price int,
+  item_quantity int
 );
 
 -- Create the second table.
@@ -118,8 +118,8 @@ CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
   order_name text,
   order_date date,
-  order_time time
-);
+  order_items text
+  );
 
 -- Create the join table.
 CREATE TABLE items_orders (

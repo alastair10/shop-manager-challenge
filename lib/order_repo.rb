@@ -6,16 +6,16 @@ class OrderRepository
   # No arguments
   def all
     # Executes the SQL query:
-    sql = 'SELECT id, order_name, order_date, order_time FROM orders;'
+    sql = 'SELECT id, order_name, order_date FROM orders;'
     result_set = DatabaseConnection.exec_params(sql,[])
 
     orders = []
 
     result_set.each {|record|
       order = Order.new
+      order.id = record['id']
       order.order_name = record['order_name']
       order.order_date = record['order_date']
-      order.order_time = record['order_time']
 
       orders << order
     }
@@ -26,8 +26,8 @@ class OrderRepository
 
   def create(order)
     # Executes the SQL query:
-    sql = 'INSERT INTO orders (order_name, order_date, order_time) VALUES ($1, $2, $3);'
-    sql_params = [order.order_name, order.order_date, order.order_time]
+    sql = 'INSERT INTO orders (order_name, order_date) VALUES ($1, $2);'
+    sql_params = [order.order_name, order.order_date]
 
     DatabaseConnection.exec_params(sql, sql_params)
 
