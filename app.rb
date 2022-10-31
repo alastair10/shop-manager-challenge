@@ -31,6 +31,7 @@ class Application
     @io.puts '2) create a new item'
     @io.puts '3) list all orders'
     @io.puts '4) create a new order'
+    @io.puts '5) find orders by item'
     input = @io.gets.chomp
 
     if input == '1'
@@ -57,8 +58,12 @@ class Application
       result_set.each do |order|
         @io.puts "#{order.id}) Date: #{order.order_date} - Name: #{order.order_name}"
       end
-    else
+
+    elsif input == '4'
       @io.puts "Do this next!"
+
+    else
+      @io.puts 
     end
   end
 end

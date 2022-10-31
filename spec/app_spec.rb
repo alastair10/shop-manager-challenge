@@ -19,6 +19,7 @@ describe Application do
     expect(io).to receive(:puts).with('2) create a new item')
     expect(io).to receive(:puts).with('3) list all orders')
     expect(io).to receive(:puts).with('4) create a new order')
+    expect(io).to receive(:puts).with('5) find orders by item')
     expect(io).to receive(:gets).and_return('1')
     expect(io).to receive(:puts).with("Here's a list of all shop items:")
     expect(io).to receive(:puts).with('1) milk - Unit price: 1 - Quantity: 6')
@@ -35,6 +36,7 @@ describe Application do
     application.run
 
   end
+
   it "returns a list of orders in the shop" do
     io = double :io
     expect(io).to receive(:puts).with('Welcome to the shop management program!')
@@ -43,6 +45,7 @@ describe Application do
     expect(io).to receive(:puts).with('2) create a new item')
     expect(io).to receive(:puts).with('3) list all orders')
     expect(io).to receive(:puts).with('4) create a new order')
+    expect(io).to receive(:puts).with('5) find orders by item')
     expect(io).to receive(:gets).and_return('3')
     expect(io).to receive(:puts).with("Here's a list of all shop orders:")
     expect(io).to receive(:puts).with('1) Date: 2022-05-01 - Name: alastair')
@@ -58,7 +61,6 @@ describe Application do
     application = Application.new(database_name, io, item_repo, order_repo)
     application.run
   end
-
 
 
 end

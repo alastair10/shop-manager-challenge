@@ -43,4 +43,16 @@ describe OrderRepository do
       expect(last_order.order_date).to eq('2023-01-01')
     end
   end
+
+  context "finds related orders" do
+    it "finds all orders containing coffee" do
+      repo = OrderRepository.new
+      
+      order = repo.find_by_item(5)
+
+      expect(order.order_items.length).to eq 2
+    
+    end
+  end
+
 end
