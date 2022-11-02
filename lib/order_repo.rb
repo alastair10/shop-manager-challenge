@@ -48,11 +48,13 @@ class OrderRepository
 
       order = get_order_info(first_record)
 
+      list = []
+
       result_set.each do |record|
-        order.order_items << get_order_info(record)
+        list << get_order_info(record)
       end
 
-      return order
+      return list
   end
 
   private

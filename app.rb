@@ -75,9 +75,11 @@ class Application
       # result_set = DatabaseConnection.exec_params(sql, [item])
       # result_set.each do |record|
       #   puts record.values.join(" - ")
-      result = @order_repo.find_by_item('5')
-      puts result.order_name
-      #end
+      result = @order_repo.find_by_item(item)
+      result.each do |record|
+        puts record.values
+      end
+
     end
   end
 end
