@@ -63,7 +63,21 @@ class Application
       @io.puts "Do this next!"
 
     else
-      @io.puts 
+      @io.puts 'Which item would you like to search for? (Enter: 1-5)'
+      item = @io.gets.chomp
+      @io.puts 'These are the orders that contain this item:'
+
+      # sql = 'SELECT orders.order_name, orders.order_date
+      # FROM orders
+      # JOIN items_orders ON items_orders.order_id = orders.id
+      # JOIN items ON items_orders.item_id = items.id
+      # WHERE items.id = $1;'
+      # result_set = DatabaseConnection.exec_params(sql, [item])
+      # result_set.each do |record|
+      #   puts record.values.join(" - ")
+      result = @order_repo.find_by_item('5')
+      puts result.order_name
+      #end
     end
   end
 end

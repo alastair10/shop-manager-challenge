@@ -62,5 +62,20 @@ describe Application do
     application.run
   end
 
+  it "searches for order that contain coffee" do
+    io = double :io
+    expect(io).to receive(:puts).with('Welcome to the shop management program!')
+    expect(io).to receive(:puts).with('What do you want to do?')
+    expect(io).to receive(:puts).with('1) list all shop items')
+    expect(io).to receive(:puts).with('2) create a new item')
+    expect(io).to receive(:puts).with('3) list all orders')
+    expect(io).to receive(:puts).with('4) create a new order')
+    expect(io).to receive(:puts).with('5) find orders by item')
+    expect(io).to receive(:puts).with('Which item would you like to search for? (Enter: 1-5)')
+    expect(io).to receive(:gets).and_return('5')
+    expect(io).to receive(:puts).with('These are the orders that contain this item:')
+    expect(io).to receive(:puts).with('alastair - 2022-05-01')
+    expect(io).to receive(:puts).with('mum - 2022-04-30')
 
+  end
 end

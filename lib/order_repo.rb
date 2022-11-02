@@ -42,7 +42,7 @@ class OrderRepository
       WHERE items.id = $1;'
       sql_params = [item]
 
-      result_set = DatabaseConnection.exec_params(sql, sql_params)
+      result_set = DatabaseConnection.exec_params(sql, sql_params).values 
       
       first_record = result_set[0]
 
@@ -67,16 +67,16 @@ class OrderRepository
 
   end
 
-  def get_item_info(record)
-    item = Item.new
-    item.id = record['id'].to_i
-    item.item_name = record['item_name']
-    item.item_price = record['item_price'].to_i
-    item.item_quantity = record['item_quantity'].to_i
+  # def get_item_info(record)
+  #   item = Item.new
+  #   item.id = record['id'].to_i
+  #   item.item_name = record['item_name']
+  #   item.item_price = record['item_price'].to_i
+  #   item.item_quantity = record['item_quantity'].to_i
 
-    return item
+  #   return item
 
-  end
+  # end
 
 
 end
